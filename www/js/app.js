@@ -5,7 +5,7 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
-angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
+angular.module('App', ['ionic', 'App.controllers', 'App.services', 'ngCordova', 'ngCordovaOauth', 'ngStorage', 'firebase'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -77,9 +77,30 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
         controller: 'AccountCtrl'
       }
     }
+  })
+  .state('login', {
+    url: '/login',
+    templateUrl: 'templates/login.html',
+    controller:'loginController'
+  })
+  .state('forgot', {
+    url: '/forgot',
+    templateUrl: 'templates/forgot.html',
+    controller:'forgotController'
+  })
+  .state('register', {
+    url: '/register',
+    templateUrl: 'templates/register.html',
+    controller:'registerController'
+  })
+  .state('home', {
+    url: '/home',
+    templateUrl: 'templates/home.html',
+    controller:'homeController'
   });
 
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/login');
 
-});
+})
+.constant('FURL', 'https://crackling-fire-7410.firebaseio.com');
