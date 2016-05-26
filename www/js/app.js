@@ -23,7 +23,9 @@ angular.module('App', ['ionic','ngMessages', 'App.controllers', 'App.services', 
   });
 })
 
-.config(function($stateProvider, $urlRouterProvider) {
+.config(function($stateProvider,$ionicConfigProvider, $urlRouterProvider) {
+
+  $ionicConfigProvider.tabs.position('bottom'); //bottom
 
   // Ionic uses AngularUI Router which uses the concept of states
   // Learn more here: https://github.com/angular-ui/ui-router
@@ -36,7 +38,7 @@ angular.module('App', ['ionic','ngMessages', 'App.controllers', 'App.services', 
         templateUrl: 'templates/map.html',
         controller: 'MapCtrl'
       })
-      
+
   // setup an abstract state for the tabs directive
     .state('tab', {
     url: '/tab',
