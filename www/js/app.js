@@ -33,11 +33,16 @@ angular.module('App', ['ionic','ngMessages', 'App.controllers', 'App.services', 
   // Each state's controller can be found in controllers.js
   $stateProvider
 
-  .state('map', {
-        url: '/map',
-        templateUrl: 'templates/map.html',
-        controller: 'MapCtrl'
-      })
+ 
+  .state('tab.map', {
+      url: '/map',
+      views: {
+        'tab-chats': {
+          templateUrl: 'templates/map.html',
+          controller: 'MapCtrl'
+        }
+      }
+    })
 
   // setup an abstract state for the tabs directive
     .state('tab', {
@@ -120,7 +125,7 @@ angular.module('App', ['ionic','ngMessages', 'App.controllers', 'App.services', 
   });
 
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/login');
+  $urlRouterProvider.otherwise('/tab/chats');
 
 })
 .constant('FURL', 'https://event-master1.firebaseio.com/');

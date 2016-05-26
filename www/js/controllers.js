@@ -2,7 +2,7 @@ angular.module('App.controllers', [])
 
 .controller('DashCtrl', function($scope) {})
 
-.controller('MapCtrl', function($scope, $state, $cordovaGeolocation,$ionicLoading) {
+.controller('MapCtrl', function($scope, $state, $cordovaGeolocation,$ionicLoading, $ionicPopup) {
   var options = {timeout: 10000, enableHighAccuracy: true};
 
   $cordovaGeolocation.getCurrentPosition(options).then(function(position){
@@ -43,7 +43,10 @@ angular.module('App.controllers', [])
     });
   },
   function(error){
-    console.log("Could not get location");
+    $ionicPopup.alert({
+      title: 'Location Error',
+      template: error
+    })
   });
 
   $scope.centerOnMe = function() {
