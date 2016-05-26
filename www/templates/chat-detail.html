@@ -12,7 +12,7 @@
 <div class="row" >
 
 
- <div class="col col-50" ng-click = "gotourl('/tab/map')"  > <i class="icon ion-location" > 
+ <div class="col col-50" ng-click = "gotourl('/tab/map')"  > <i class="icon ion-location" >
   <strong><u>LOCATION</u></strong></i><br>
   {{chat.Location}}
 </div>
@@ -24,6 +24,26 @@
 
 </div>
 </div>
+
+<form name="newCommentForm" novalidate>
+ <br>
+ <br>  <div ng-show="newCommentForm.$invalid" class="error-container text-center">
+   <p class="error form-error">{{errormsg}}</p>
+ </div>    <div>      <label class="item item-input item-stacked-label" ng-class="{ 'has-error' : newCommentForm.commentText.$invalid}">
+       <textarea style="margin-top:10px;font-size:16px;"
+                 rows="10"
+                 name="commentText"
+                 ng-model="comment.text"
+                 placeholder="Type your comment here" required>
+       </textarea>
+     </label>    </div>
+ </form>    <br>
+   <br>
+   <br>  <div class="bar bar-footer bar-calm" style="text-align:center;">
+   <!-- <center> -->
+     <button class="button button-full button-calm" style="font-size:16px;text-align:center;padding:0;margin:0;" ng-click="saveComment(newCommentForm)">Save</button>
+   <!-- </center> -->
+ </div>
 
 
   </ion-content>

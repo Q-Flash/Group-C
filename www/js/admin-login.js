@@ -23,7 +23,7 @@ angular.module('App').controller('adminloginController', function ($scope, $stat
             $localStorage.userkey = userkey;
 
               Utils.hide();
-              $state.go('home');
+              $state.go('admin-events');
               console.log("Starter page","Home");
 
           })
