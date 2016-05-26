@@ -89,8 +89,26 @@ angular.module('App.controllers', [])
 
 
 
-.controller('ChatDetailCtrl', function($scope, $stateParams, $location, Chats) {
+.controller('ChatDetailCtrl', function($scope, $stateParams, $location,$cordovaCamera, Chats) {
+  $scope.takeImage = function() {
+      var options = {
+          quality: 80,
+          destinationType: 0,//Camera.DestinationType.DATA_URL,
+          sourceType: 1,//Camera.PictureSourceType.CAMERA,
+          allowEdit: true,
+          encodingType: 0,//Camera.EncodingType.JPEG,
+          targetWidth: 250,
+          targetHeight: 250,
+          //popoverOptions: CameraPopoverOptions,
+          saveToPhotoAlbum: false
+      };
 
+      $cordovaCamera.getPicture(options).then(function(imageData) {
+          $scope.srcImage = "data:image/jpeg;base64," + imageData;
+      }, function(err) {
+          // error
+      });
+  }
 $scope.gotourl = function(path){
    $location.path(path);
 }

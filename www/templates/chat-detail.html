@@ -38,11 +38,18 @@
        </textarea>
      </label>    </div>
  </form>    <br>
+
+
+
    <br>
    <br>  <div class="bar bar-footer bar-calm" style="text-align:center;">
    <!-- <center> -->
-     <button class="button button-full button-calm" style="font-size:16px;text-align:center;padding:0;margin:0;" ng-click="saveComment(newCommentForm)">Save</button>
+     <button class="button button-full button-calm" style="font-size:16px;text-align:center;padding:0;margin:0;" ng-click="saveComment(newCommentForm)">Add Comment</button>
+     <button class="button button-full button-positive " ng-click="takeImage() ">Upload Picture</button><br/>
    <!-- </center> -->
+
+
+   <img ng-src="{{srcImage }}"  width="250 " height="250" /><br/>
  </div>
 
 
