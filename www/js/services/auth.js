@@ -2,9 +2,9 @@ angular.module('App').factory('Auth', function(FURL, $firebaseAuth, $firebaseArr
 
 	var ref = new Firebase(FURL);
 	var auth = $firebaseAuth(ref);
-
 	var Auth = {
 		user: {},
+
 
     createProfile: function(uid, user) {
       var profile = {
@@ -27,6 +27,7 @@ angular.module('App').factory('Auth', function(FURL, $firebaseAuth, $firebaseArr
         {email: user.email, password: user.password}
       );
     },
+
 
     register: function(user) {
       return auth.$createUser({email: user.email, password: user.password})

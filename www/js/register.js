@@ -3,12 +3,12 @@ angular.module('App').controller('registerController', function ($scope, $state,
 
   $scope.register = function(user) {
     if(angular.isDefined(user)){
-    Utils.show();
+    Utils.show("Loading");
     Auth.register(user)
       .then(function() {
          Utils.hide();
          console.log("Before Logging:" + JSON.stringify(user));
-         Utils.alertshow("Successfully","The User was successfully created.");
+         Utils.alertshow("Success!","The User was successfully created.");
          $location.path('/');
       }, function(err) {
          Utils.hide();

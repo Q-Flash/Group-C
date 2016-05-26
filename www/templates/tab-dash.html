@@ -1,58 +1,17 @@
 <ion-view view-title="EventMaster">
+
   <ion-content class="padding">
 
-    <div class="bar bar-header">
-  <button class="button icon ion-navicon"></button>
-  <h1 class="title">Header Buttons</h1>
+<form name="form.search" ng-submit="form.search.$valid && goToList()">
+     <label class="item item-input">
+       <i class="icon ion-search placeholder-icon"></i>
+       <input type="text" ng-model="search.string" required="required" placeholder="Event name">
+     </label>
+     <br />
 
-</div>
-
-<br></br>
-
-    <p>
-    Scroll in order to view upcoming events
-  </p>
-
-    <div class="list card">
-
-      <div class="item item-avatar">
-        <img src="mcfly.jpg">
-        <h2>Marty McFly</h2>
-        <p>November 05, 1955</p>
-      </div>
-    </div>
-
-      <div class="list card">
-
-        <div class="item item-avatar">
-          <img src="mcfly.jpg">
-          <h2>Marty McFly</h2>
-          <p>November 05, 1955</p>
-        </div>
-      </div>
-
-        <div class="list card">
-
-          <div class="item item-avatar">
-            <img src="mcfly.jpg">
-            <h2>Marty McFly</h2>
-            <p>November 05, 1955</p>
-          </div>
-        </div>
-
-          <div class="list card">
-
-            <div class="item item-avatar">
-              <img src="mcfly.jpg">
-              <h2>Marty McFly</h2>
-              <p>November 05, 1955</p>
-            </div>
-
-    </div>
-
-  <button class="button button-block button-outline button-positive">
-Show More
-</button>
+ 
+     <button class="button button-calm button-block" ng-disabled="form.search.$invalid"><b>Search</b></button>
+   </form>
 
 
   </ion-content>

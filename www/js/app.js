@@ -5,7 +5,7 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
-angular.module('App', ['ionic', 'App.controllers', 'App.services', 'ngCordova', 'ngCordovaOauth', 'ngStorage', 'firebase'])
+angular.module('App', ['ionic','ngMessages', 'App.controllers', 'App.services', 'ngCordova', 'ngCordovaOauth', 'ngStorage', 'firebase'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -31,6 +31,12 @@ angular.module('App', ['ionic', 'App.controllers', 'App.services', 'ngCordova', 
   // Each state's controller can be found in controllers.js
   $stateProvider
 
+  .state('map', {
+        url: '/map',
+        templateUrl: 'templates/map.html',
+        controller: 'MapCtrl'
+      })
+      
   // setup an abstract state for the tabs directive
     .state('tab', {
     url: '/tab',
@@ -78,11 +84,23 @@ angular.module('App', ['ionic', 'App.controllers', 'App.services', 'ngCordova', 
       }
     }
   })
+
+  .state('admin-events', {
+    url: '/admin-events',
+    templateUrl: 'templates/admin-events.html',
+    controller:'eventController'
+  })
+
   .state('login', {
     url: '/login',
     templateUrl: 'templates/login.html',
     controller:'loginController'
   })
+  .state('adminlogin', {
+      url: '/adminlogin',
+      templateUrl: 'templates/admin-login.html',
+      controller:'adminloginController'
+    })
   .state('forgot', {
     url: '/forgot',
     templateUrl: 'templates/forgot.html',
@@ -95,7 +113,7 @@ angular.module('App', ['ionic', 'App.controllers', 'App.services', 'ngCordova', 
   })
   .state('home', {
     url: '/home',
-    templateUrl: 'templates/home.html',
+    templateUrl: 'templates/tabs.html',
     controller:'homeController'
   });
 
@@ -103,4 +121,4 @@ angular.module('App', ['ionic', 'App.controllers', 'App.services', 'ngCordova', 
   $urlRouterProvider.otherwise('/login');
 
 })
-.constant('FURL', 'https://crackling-fire-7410.firebaseio.com');
+.constant('FURL', 'https://event-master1.firebaseio.com/');

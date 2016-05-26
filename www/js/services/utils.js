@@ -2,13 +2,13 @@ angular.module('App').factory('Utils', function($ionicLoading,$ionicPopup) {
 
 	var Utils = {
 
-    show: function() {
+    show: function(msg) {
       $ionicLoading.show({
   	    animation: 'fade-in',
   	    showBackdrop: false,
   	    maxWidth: 200,
   	    showDelay: 500,
-        template: '<p class="item-icon-left">Loading...<ion-spinner icon="lines"/></p>'
+        template: '<p class="item-icon-left">'+msg+'<ion-spinner icon="lines"/></p>'
       });
     },
 

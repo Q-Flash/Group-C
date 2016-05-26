@@ -1,0 +1,79 @@
+<ion-view view-title="Event Master" hide-back-button="true">
+        <ion-content class="padding-top">
+          <div class="list text-center padding">
+            <i class="icon ion-ios-game-controller-b larger positive"></i>
+          </div>
+          <form novalidate="" name="eventForm" form-manager>
+          <div class="list">
+            <label class="item item-input item-floating-label" ng-class="{ 'has-error' : eventForm.txteventname.$invalid && eventForm.$submitted }">
+              <span class="input-label">Event Name</span>
+              <input name="txteventname" type="text" ng-model="event.event_name" placeholder="Event Name"
+              ng-minlength="5"
+              required>
+            </label>
+            <!-- Edit this messages if you want -->
+            <div class="form-errors" ng-messages="eventForm.txteventname.$error" ng-if="eventForm.$submitted">
+              <div class="form-error" ng-message="required">This field is required.</div>
+              <div class="form-error" ng-message="minlength">This field must be at least 5 characters.</div>
+            </div>
+
+            <label class="item item-input item-floating-label" ng-class="{ 'has-error-lr' : eventForm.txtdate.$invalid &&eventForm.$submitted }">
+              <span class="input-label">Date</span>
+              <input name="txteventdate" type="text" ng-model="event.event_date" placeholder="Date"
+              ng-minlength="5"
+              required>
+            </label>
+            <!-- Edit this messages if you want -->
+            <div class="form-errors" ng-messages="eventForm.txteventdate.$error" ng-if="eventForm.$submitted"  >
+            <div class="form-error" ng-message="required">This field is required.</div>
+            <div class="form-error" ng-message="minlength">This field is must be at least 5 characters.</div>
+            </div>
+
+            <label class="item item-input item-floating-label" ng-class="{ 'has-error-lr' : eventForm.txteventtime.$invalid &&eventForm.$submitted }">
+              <span class="input-label">Time</span>
+              <input name="txteventtime" type="text" ng-model="event.event_time" placeholder="Time"
+              ng-minlength="5"
+              required>
+            </label>
+            <!-- Edit this messages if you want -->
+            <div class="form-errors" ng-messages="eventForm.txteventtime.$error" ng-if="eventForm.$submitted">
+            <div class="form-error" ng-message="required">This field is required.</div>
+            <div class="form-error" ng-message="minlength">This field is must be at least 5 characters.</div>
+            </div>
+
+
+            <label class="item item-input item-floating-label" ng-class="{ 'has-error' : eventForm.txteventdes.$invalid && eventForm.$submitted }">
+              <span class="input-label">Location</span>
+              <input name="txteventlocation" type="text" ng-model="event.event_location" placeholder="Location"
+              ng-minlength="5"
+              required>
+            </label>
+            <!-- Edit this messages if you want -->
+            <div class="form-errors" ng-messages="eventForm.txteventlocation.$error" ng-if="eventForm.$submitted">
+              <div class="form-error" ng-message="required">This field is required.</div>
+              <div class="form-error" ng-message="minlength">This field must be at least 5 characters.</div>
+            </div>
+
+
+            <label class="item item-input item-floating-label" ng-class="{ 'has-error' : eventForm.txteventdes.$invalid && eventForm.$submitted }">
+              <span class="input-label">Description</span>
+              <input name="txteventdes" type="text" ng-model="event.event_description" placeholder="Description"
+              ng-minlength="5"
+              required>
+            </label>
+            <!-- Edit this messages if you want -->
+            <div class="form-errors" ng-messages="eventForm.txteventdes.$error" ng-if="eventForm.$submitted">
+              <div class="form-error" ng-message="required">This field is required.</div>
+              <div class="form-error" ng-message="minlength">This field must be at least 5 characters.</div>
+            </div>
+
+          </div>
+          <div class="padding-top">
+            <button ng-click="submit()"  class = "button button-balanced">
+              Submit
+            </button>
+
+          </div>
+        </form>
+        </ion-content>
+</ion-view>

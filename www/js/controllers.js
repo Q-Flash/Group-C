@@ -2,7 +2,70 @@ angular.module('App.controllers', [])
 
 .controller('DashCtrl', function($scope) {})
 
-.controller('ChatsCtrl', function($scope, Chats) {
+.controller('MapCtrl', function($scope, $state, $cordovaGeolocation,$ionicLoading) {
+  var options = {timeout: 10000, enableHighAccuracy: true};
+
+  $cordovaGeolocation.getCurrentPosition(options).then(function(position){
+    var EventmyLatlng = new google.maps.LatLng(13.1704468,-59.6357891); //Sandy Lane Golf Course
+    var latLng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+
+    var mapOptions = {
+      center: latLng,
+      zoom: 13,
+      mapTypeId: google.maps.MapTypeId.ROADMAP
+    };
+
+    $scope.map = new google.maps.Map(document.getElementById("map"), mapOptions);
+    //Wait until the map is loaded
+    google.maps.event.addListenerOnce($scope.map, 'idle', function(){
+
+
+
+
+
+       var directionsService = new google.maps.DirectionsService();
+        var directionsDisplay = new google.maps.DirectionsRenderer({map:$scope.map});
+
+
+
+         var request = {
+            origin : latLng,
+            destination : EventmyLatlng,
+            travelMode : google.maps.TravelMode.WALKING
+        };
+        directionsService.route(request, function(response, status) {
+            if (status == google.maps.DirectionsStatus.OK) {
+                directionsDisplay.setDirections(response);
+            }
+        });
+
+           directionsDisplay.setMap($scope.map);
+    });
+  },
+  function(error){
+    console.log("Could not get location");
+  });
+
+  $scope.centerOnMe = function() {
+          if(!$scope.map) {
+              return;
+          }
+
+          $ionicLoading.show({
+            content: 'Getting current location...',
+            showBackdrop: false
+          });
+
+          navigator.geolocation.getCurrentPosition(function(pos) {
+            $scope.map.setCenter(new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude));
+            $ionicLoading.hide();
+          }, function(error) {
+            alert('Unable to get location: ' + error.message);
+          });
+      };
+})
+
+.controller('ChatsCtrl', function($scope, Chats,$location) {
   // With the new view caching in Ionic, Controllers are only called
   // when they are recreated or on app start, instead of every page change.
   // To listen for when this page is active (for example, to refresh data),
@@ -11,13 +74,24 @@ angular.module('App.controllers', [])
   //$scope.$on('$ionicView.enter', function(e) {
   //});
 
+
+
   $scope.chats = Chats.all();
   $scope.remove = function(chat) {
     Chats.remove(chat);
   };
 })
 
-.controller('ChatDetailCtrl', function($scope, $stateParams, Chats) {
+
+
+
+
+.controller('ChatDetailCtrl', function($scope, $stateParams, $location, Chats) {
+
+$scope.gotourl = function(path){
+   $location.path(path);
+}
+
   $scope.chat = Chats.get($stateParams.chatId);
 })
 

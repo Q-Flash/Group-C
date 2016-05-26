@@ -1,5 +1,5 @@
 'Use Strict';
-angular.module('App').controller('loginController', function ($scope, $state, $cordovaOauth, $localStorage, $location,$http,$ionicPopup, $firebaseObject, Auth, FURL, Utils) {
+angular.module('App').controller('adminloginController', function ($scope, $state, $cordovaOauth, $localStorage, $location,$http,$ionicPopup, $firebaseObject, Auth, FURL, Utils) {
   var ref = new Firebase(FURL);
   var userkey = "";
   $scope.signIn = function (user) {
@@ -10,10 +10,10 @@ angular.module('App').controller('loginController', function ($scope, $state, $c
       .then(function(authData) {
       //console.log("id del usuario:" + JSON.stringify(authData));
 
-      ref.child('profile').orderByChild("id").equalTo(authData.uid).on("child_added", function(snapshot) {
+      ref.child('admin').orderByChild("id").equalTo(authData.uid).on("child_added", function(snapshot) {
         console.log(snapshot.key());
         userkey = snapshot.key();
-        var obj = $firebaseObject(ref.child('profile').child(userkey));
+        var obj = $firebaseObject(ref.child('admin').child(userkey));
 
         obj.$loaded()
           .then(function(data) {
