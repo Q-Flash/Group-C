@@ -89,13 +89,47 @@ angular.module('App.controllers', [])
 
 
 
-.controller('ChatDetailCtrl', function($scope, $stateParams, $location, Chats) {
+.controller('ChatDetailCtrl', function($scope, $stateParams, $location, Chats, $state, $localStorage,$http,$ionicPopup, $firebaseArray, $firebaseObject, FURL) {
+  var ref = new Firebase(FURL);
+  var events = ref.child("Events");
+  var events_array = $firebaseArray(events);
 
-$scope.gotourl = function(path){
+  events_array.$loaded(function(eventInfo){
+    angular.forEach(eventInfo, function (value, key){
+      //var eventLocation = '<div id = "content"'>+value.event_location + '</div>';
+      //var displayEventLoc = value.event_location;
+      console.log(key);
+      console.log(value);
+      var displayEventInfo = value;
+      console.log(displayEventInfo);
+      console.log(displayEventInfo.event_name);
+      var displayEventLocations = '<div id="content">' +displayEventInfo.event_name+ '</div';
+      //var displayEvent{
+      //  event_name: value.event_name,
+      //  event_date: value.event_date,
+      //  event_time: value.event_time,
+      //  event_location: value.event_location,
+      //  event_description: value.event_description
+      //}
+    })
+  })
+  $scope.gotourl = function(path){
    $location.path(path);
 }
 
   $scope.chat = Chats.get($stateParams.chatId);
+
+
+  /*
+  var ref = new Firebase(FURL);
+  var comments_array = $firebaseArray(ref);
+
+  var comments = ref.child("Comments");
+
+  ref.push().set({
+    "comment": newCommentForm.$viewValue
+  });
+  */
 })
 
 .controller('AccountCtrl', function($scope) {

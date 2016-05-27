@@ -1,9 +1,34 @@
 angular.module('App.services', [])
 
-.factory('Chats', function() {
+.factory('Chats', function($firebaseObject,FURL,$firebaseArray) {
   // Might use a resource here that returns a JSON array
-
+  /*
   // Some fake testing data
+  var ref = new Firebase(FURL);
+  var events = ref.child("Events");
+  var events_array = $firebaseArray(events);
+
+  events_array.$loaded(function(eventInfo){
+    angular.forEach(eventInfo, function (value, key){
+      //var eventLocation = '<div id = "content"'>+value.event_location + '</div>';
+      //var displayEventLoc = value.event_location;
+      console.log(key);
+      console.log(value);
+      var displayEventInfo = value;
+      console.log(displayEventInfo);
+      console.log(displayEventInfo.event_name);
+      var displayEventLocations = '<div id="content">' +displayEventInfo.event_name+ '</div';
+      //var displayEvent{
+      //  event_name: value.event_name,
+      //  event_date: value.event_date,
+      //  event_time: value.event_time,
+      //  event_location: value.event_location,
+      //  event_description: value.event_description
+      //}
+    })
+
+  })
+  */
   var chats = [{
    id: 1,
     name: 'CSS App Workshop',

@@ -4,7 +4,7 @@
   The FriendsCtrl pulls data from the Friends service (service.js)
   The Friends service returns an array of friend data
 -->
-<ion-view view-title="{{chat.name}}">
+<ion-view view-title="{{displayEventInfo.event_name}}">
   <ion-content class="padding">
     <img ng-src="{{chat.face}}" style="width: 355px; height: 200px">
 
@@ -25,7 +25,7 @@
 </div>
 </div>
 
-<form name="newCommentForm" novalidate>
+<form novalidate="" name="newCommentForm" form-manager>
  <br>
  <br>  <div ng-show="newCommentForm.$invalid" class="error-container text-center">
    <p class="error form-error">{{errormsg}}</p>
