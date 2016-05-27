@@ -41,6 +41,18 @@
             <div class="form-error" ng-message="minlength">This field is must be at least 5 characters.</div>
             </div>
 
+            <label class="item item-input item-floating-label" ng-class="{ 'has-error' : eventForm.txteventgenre.$invalid && eventForm.$submitted }">
+            <span class="input-label">Genre</span>
+            <input name="txteventgenre" type="text" ng-model="event.event_genre" placeholder="Genre"
+            ng-minlength="5"
+            required>
+          </label>
+          <!-- Edit this messages if you want -->
+          <div class="form-errors" ng-messages="eventForm.txteventgenre.$error" ng-if="eventForm.$submitted">
+            <div class="form-error" ng-message="required">This field is required.</div>
+            <div class="form-error" ng-message="minlength">This field must be at least 5 characters.</div>
+          </div>
+
 
             <label class="item item-input item-floating-label" ng-class="{ 'has-error' : eventForm.txteventdes.$invalid && eventForm.$submitted }">
               <span class="input-label">Location</span>
@@ -54,6 +66,17 @@
               <div class="form-error" ng-message="minlength">This field must be at least 5 characters.</div>
             </div>
 
+            <label class="item item-input item-floating-label" ng-class="{ 'has-error' : eventForm.txteventcoordinates.$invalid && eventForm.$submitted }">
+            <span class="input-label">Coordinates</span>
+            <input name="txteventcoordinates" type="text" ng-model="event.event_coordinates" placeholder="Co-ordinate"
+            ng-minlength="5"
+            required>
+          </label>
+          <!-- Edit this messages if you want -->
+          <div class="form-errors" ng-messages="eventForm.txteventcoordinates.$error" ng-if="eventForm.$submitted">
+            <div class="form-error" ng-message="required">This field is required.</div>
+            <div class="form-error" ng-message="minlength">This field must be at least 5 characters.</div>
+          </div>
 
             <label class="item item-input item-floating-label" ng-class="{ 'has-error' : eventForm.txteventdes.$invalid && eventForm.$submitted }">
               <span class="input-label">Description</span>

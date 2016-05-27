@@ -7,7 +7,9 @@ angular.module('App').controller('eventController', function (Utils, $scope, $st
     event_name: '',
     event_date: '',
     event_time: '',
+    event_genre: '',
     event_location: '',
+    event_cooridates: '',
     event_description: '',
     event_likes: 0
   };
@@ -16,7 +18,9 @@ angular.module('App').controller('eventController', function (Utils, $scope, $st
       event_name: form.txteventname.$viewValue,
       event_date: form.txteventdate.$viewValue,
       event_time: form.txteventtime.$viewValue,
+      event_genre: form.txteventgenre.$viewValue,
       event_location: form.txteventlocation.$viewValue,
+      event_coordinates: form.txteventcoordinates.$viewValue,
       event_description: form.txteventdes.$viewValue,
       event_likes: 0
     })
