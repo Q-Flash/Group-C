@@ -89,7 +89,8 @@ angular.module('App.controllers', [])
 
 
 
-.controller('ChatDetailCtrl', function($scope, $stateParams, $location, Chats, $state, $localStorage,$http,$ionicPopup, $firebaseArray, $firebaseObject, FURL) {
+<<<<<<< HEAD
+.controller('ChatDetailCtrl', function($scope, $stateParams, $location,$cordovaCamera, Chats, $state, $localStorage,$http,$ionicPopup, $firebaseArray, $firebaseObject, FURL) {
   var ref = new Firebase(FURL);
   var events = ref.child("Events");
   var events_array = $firebaseArray(events);
@@ -113,6 +114,37 @@ angular.module('App.controllers', [])
       //}
     })
   })
+  $scope.array = [];
+
+  $scope.addListItem = function(quote){
+    $scope.array.unshift(quote);
+    //clear quote
+    this.customQuote = null;
+
+ }
+
+
+
+
+   $scope.takeImage = function() {
+       var options = {
+           quality: 80,
+           destinationType: 0,//Camera.DestinationType.DATA_URL,
+           sourceType: 1,//Camera.PictureSourceType.CAMERA,
+           allowEdit: true,
+           encodingType: 0,//Camera.EncodingType.JPEG,
+           targetWidth: 250,
+           targetHeight: 250,
+           //popoverOptions: CameraPopoverOptions,
+           saveToPhotoAlbum: false
+       };
+
+       $cordovaCamera.getPicture(options).then(function(imageData) {
+           $scope.srcImage = "data:image/jpeg;base64," + imageData;
+       }, function(err) {
+           // error
+       });
+   }
   $scope.gotourl = function(path){
    $location.path(path);
 }
