@@ -1,9 +1,27 @@
+/*
+'Use strict';
+angular.module('App').controller('adminloginController', function (Utils, $scope, $state, $localStorage, $location,$http,$ionicPopup, $firebaseObject, FURL){
+
+  if('loginForm.$submitted' &&'user.password' == "PASSWORD"){
+    state.go('adminevents');
+    console.log("Twas successful");
+  }
+  else {
+    console.log("Twas not successful");
+  }
+
+
+});
+*/
+
+
 'Use Strict';
 angular.module('App').controller('adminloginController', function ($scope, $state, $cordovaOauth, $localStorage, $location,$http,$ionicPopup, $firebaseObject, Auth, FURL, Utils) {
   var ref = new Firebase(FURL);
   var userkey = "";
   $scope.signIn = function (user) {
     console.log("Enviado");
+    console.log(user.password);
     if(angular.isDefined(user)){
     Utils.show("Loading");
     Auth.login(user)
@@ -19,6 +37,7 @@ angular.module('App').controller('adminloginController', function ($scope, $stat
           .then(function(data) {
             //console.log(data === obj); // true
             //console.log(obj.email);
+            //if(user.password == 'PASSWORD'){return}
             $localStorage.email = obj.email;
             $localStorage.userkey = userkey;
 
