@@ -1,4 +1,4 @@
-angular.module('App.controllers', ['ionic.rating'])
+angular.module('App.controllers', ['ionic','ionic.rating'])
 
 .controller('DashCtrl', function($scope) {})
 
@@ -95,9 +95,22 @@ angular.module('App.controllers', ['ionic.rating'])
 
 .controller('ChatDetailCtrl', function($scope, $stateParams, $location,$cordovaCamera, Chats, $state, $localStorage,$http,$ionicPopup, $firebaseArray, $firebaseObject, FURL) {
   // set the rate and max variables
-   $scope.rating = {};
-   $scope.rating.rate = 3;
-   $scope.rating.max = 5;
+  $scope.ratingsObject = {
+        iconOn: 'ion-ios-star',    //Optional
+        iconOff: 'ion-ios-star-outline',   //Optional
+        iconOnColor: 'rgb(200, 200, 100)',  //Optional
+        iconOffColor:  'rgb(200, 100, 100)',    //Optional
+        rating:  2, //Optional
+        minRating:1,    //Optional
+        readOnly: true, //Optional
+        callback: function(rating) {    //Mandatory
+          $scope.ratingsCallback(rating);
+        }
+      };
+
+      $scope.ratingsCallback = function(rating) {
+        console.log('Selected rating is : ', rating);
+      };
 
   var ref = new Firebase(FURL);
   var events = ref.child("Events");
