@@ -85,11 +85,6 @@ angular.module('App.controllers', [])
   };
 })
 
-
-
-
-
-<<<<<<< HEAD
 .controller('ChatDetailCtrl', function($scope, $stateParams, $location,$cordovaCamera, Chats, $state, $localStorage,$http,$ionicPopup, $firebaseArray, $firebaseObject, FURL) {
   var ref = new Firebase(FURL);
   var events = ref.child("Events");
