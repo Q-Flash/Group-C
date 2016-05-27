@@ -5,7 +5,7 @@
   The Friends service returns an array of friend data
 -->
 
-<ion-view view-title="{{displayEventInfo.event_name}}">
+<ion-view view-title="{{chat.name}}">
   <ion-content class="padding custom">
     <img ng-src="{{chat.face}}" style="width: 100%; height: 200px">
 
@@ -15,14 +15,14 @@
 
  <div class="col col-50 white" ng-click = "gotourl('/tab/map')"  > <i class="icon ion-location">
   <strong><u>LOCATION</u></strong></i><br>
-  {{displayEventInfo.event_location}}
+  {{chat.Location}}
 </div>
 
 
   <div class="bor col col-50 white">
     <i class="icon ion-clock " >
      <strong>DATES </strong></i>  <br>
-    {{displayEventInfo.event_date}}
+    {{chat.Date}}
 
   </div>
 </div>
@@ -47,7 +47,7 @@
 <div style="margin:10px;">
 <strong> EVENT DETAILS</strong>
 <br>
-{{displayEventInfo.event_description}}
+{{chat.eventDetails}}
 </div>
   </div>
 
