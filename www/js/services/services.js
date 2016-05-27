@@ -32,7 +32,7 @@ angular.module('App.services', [])
   var chats = [{
    id: 1,
     name: 'CSS App Workshop',
-    eventDetails: 'Join us at the CSS workshop and embark on your future, build a killer app and win tones of great prizes.This is what you have been waiting for!',
+    eventDetails: 'Join us at the CSS workshop and embark on your future, build a killer app and win tons of great prizes.This is what you have been waiting for!',
     face: 'img/appw.jpg',
     Location:'UWI Cave Hill Campus, Barbados',
     Date:' Mon May 23, 2016 9:00pm',
@@ -40,7 +40,7 @@ angular.module('App.services', [])
   }, {
    id: 2,
     name: 'Day 2',
-    eventDetails: 'Day 2 will be the ultimate cropover experience! Early bird tickets avaible from all box offices from 9am - 4pm. Happy hour from 10pm - 11pm Premium drinks half price until 12am.  ',
+    eventDetails: 'Day 2 will be the ultimate cropover experience! Early bird tickets available from all box offices from 9am - 4pm. Happy hour from 10pm - 11pm. Premium drinks half price until 12am.  ',
     face: 'img/web6.jpg',
     Location:'Kensington Oval',
     Date:' Aug 2, 2016 11:00pm',
@@ -49,7 +49,7 @@ angular.module('App.services', [])
   }, {
     id: 3,
     name: 'Jalapeno Sunrise',
-    eventDetails:'Jalapeno Sunrise will be the ultimate party experience! Early bird tickets avaible from all box offices from 9am - 4pm .Black Bottles?? we got that son!!! We gonna light them up on board Jalapeño Sunrise! One of our partners for this epic boatride. Buy ticket online at www.bajantube.com/boatride or grab physical tickets at Brooklyn’s Finest, Bridgetown.',
+    eventDetails:'Jalapeno Sunrise will be the ultimate party experience! Early bird tickets available from all box offices from 9am - 4pm .Black Bottles?? we got that son!!! We gonna light them up on board Jalapeño Sunrise! One of our partners for this epic boatride. Buy tickets online at www.bajantube.com/boatride or grab physical tickets at Brooklyn’s Finest, Bridgetown.',
     face: 'img/web1.jpg',
     Location:'Black Woods Screw Dock',
     Date:' Sun Jul 15, 2016 10:00pm',
@@ -73,7 +73,7 @@ angular.module('App.services', [])
   }, {
     id: 6,
     name: 'Colorz',
-    eventDetails: 'Come celebrate Independence with us and party till the sum comes up. The biggest Djs will be spinning tracks all night. Premium drinks available all night long. Miss this and blame yourself.',
+    eventDetails: 'Come celebrate Independence with us and party till the sun comes up. The biggest DJs will be spinning tracks all night. Premium drinks available all night long. Miss this and blame yourself.',
     face: 'img/web4.jpg',
     Location:'Jolly Roger - Black Pearl Party Cruises',
     Date:' Sun Nov 27, 2016 11:00pm',
