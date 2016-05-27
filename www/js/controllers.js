@@ -96,10 +96,10 @@ angular.module('App.controllers', [])
       //var displayEventLoc = value.event_location;
       console.log(key);
       console.log(value);
-      var displayEventInfo = value;
+      $scope.displayEventInfo = value;
       console.log(displayEventInfo);
       console.log(displayEventInfo.event_name);
-      var displayEventLocations = '<div id="content">' +displayEventInfo.event_name+ '</div';
+      //var displayEventLocations = '<div id="content">' +displayEventInfo.event_name+ '</div';
       //var displayEvent{
       //  event_name: value.event_name,
       //  event_date: value.event_date,

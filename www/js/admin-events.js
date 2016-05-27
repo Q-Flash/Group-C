@@ -8,7 +8,8 @@ angular.module('App').controller('eventController', function (Utils, $scope, $st
     event_date: '',
     event_time: '',
     event_location: '',
-    event_description: ''
+    event_description: '',
+    event_likes: 0
   };
   $scope.userSubmit = function(form){
     events.push({
@@ -16,7 +17,8 @@ angular.module('App').controller('eventController', function (Utils, $scope, $st
       event_date: form.txteventdate.$viewValue,
       event_time: form.txteventtime.$viewValue,
       event_location: form.txteventlocation.$viewValue,
-      event_description: form.txteventdes.$viewValue
+      event_description: form.txteventdes.$viewValue,
+      event_likes: 0
     })
     //Utils.show("Submitted");
     //$state.go('admin-events');
