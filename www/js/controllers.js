@@ -90,6 +90,19 @@ angular.module('App.controllers', [])
 
 
 .controller('ChatDetailCtrl', function($scope, $stateParams, $location,$cordovaCamera, Chats) {
+ 
+ $scope.array = [];
+
+ $scope.addListItem = function(quote){
+   $scope.array.unshift(quote);
+   //clear quote
+   this.customQuote = null;
+
+}
+
+
+
+
   $scope.takeImage = function() {
       var options = {
           quality: 80,

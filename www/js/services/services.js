@@ -7,7 +7,7 @@ angular.module('App.services', [])
   var chats = [{
    id: 1,
     name: 'CSS App Workshop',
-    lastText: 'Join us at the CSS workshop and embark on your future, build a killer app and win tones of great prizes.This is what you have been waiting for!',
+    eventDetails: 'Join us at the CSS workshop and embark on your future, build a killer app and win tones of great prizes.This is what you have been waiting for!',
     face: 'img/appw.jpg',
     Location:'UWI Cave Hill Campus, Barbados',
     Date:' Mon May 23, 2016 9:00pm',

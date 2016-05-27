@@ -128,4 +128,4 @@ angular.module('App', ['ionic','ngMessages', 'App.controllers', 'App.services', 
   $urlRouterProvider.otherwise('/tab/chats');
 
 })
-.constant('FURL', 'https://event-master1.firebaseio.com/');
+.constant('FURL', 'https://event-master2.firebaseio.com/');
