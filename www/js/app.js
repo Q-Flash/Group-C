@@ -33,6 +33,12 @@ angular.module('App', ['ionic','ngMessages', 'App.controllers', 'App.services', 
   // Each state's controller can be found in controllers.js
   $stateProvider
 
+  // setup an abstract state for the tabs directive
+    .state('tab', {
+    url: '/tab',
+    abstract: true,
+    templateUrl: 'templates/tabs.html'
+  })
 
   .state('tab.map', {
       url: '/map',
@@ -43,14 +49,6 @@ angular.module('App', ['ionic','ngMessages', 'App.controllers', 'App.services', 
         }
       }
     })
-
-  // setup an abstract state for the tabs directive
-    .state('tab', {
-    url: '/tab',
-    abstract: true,
-    templateUrl: 'templates/tabs.html'
-  })
-
   // Each tab has its own nav history stack:
 
   .state('tab.dash', {
@@ -125,7 +123,7 @@ angular.module('App', ['ionic','ngMessages', 'App.controllers', 'App.services', 
   });
 
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/login');
+  $urlRouterProvider.otherwise('/tab/chats');
 
 })
 .constant('FURL', 'https://event-master2.firebaseio.com/');

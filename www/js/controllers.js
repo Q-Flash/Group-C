@@ -1,12 +1,12 @@
-angular.module('App.controllers', ['ionic','ionic.rating'])
+angular.module('App.controllers', ['ionic','ionic.rating', 'ngCordova'])
 
 .controller('DashCtrl', function($scope) {})
 
-.controller('MapCtrl', function($scope, $state, $cordovaGeolocation,$ionicLoading, $ionicPopup) {
-  var options = {timeout: 10000, enableHighAccuracy: true};
-
+.controller('MapCtrl', function($scope, $state, $cordovaGeolocation, $ionicLoading, $ionicPopup) {
+  var options = {timeout: 10000, enableHighAccuracy: true, maximumAge: 0};
+ 
   $cordovaGeolocation.getCurrentPosition(options).then(function(position){
-    var EventmyLatlng = new google.maps.LatLng(13.1704468,-59.6357891); //Sandy Lane Golf Course
+    var EventmyLatlng = new google.maps.LatLng('13.1704468','-59.6357891'); //Sandy Lane Golf Course
     var latLng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
 
     var mapOptions = {
@@ -19,14 +19,8 @@ angular.module('App.controllers', ['ionic','ionic.rating'])
     //Wait until the map is loaded
     google.maps.event.addListenerOnce($scope.map, 'idle', function(){
 
-
-
-
-
        var directionsService = new google.maps.DirectionsService();
         var directionsDisplay = new google.maps.DirectionsRenderer({map:$scope.map});
-
-
 
          var request = {
             origin : latLng,
@@ -45,7 +39,7 @@ angular.module('App.controllers', ['ionic','ionic.rating'])
   function(error){
     $ionicPopup.alert({
       title: 'Location Error',
-      template: error
+      template: "error"
     })
   });
 
@@ -53,12 +47,10 @@ angular.module('App.controllers', ['ionic','ionic.rating'])
           if(!$scope.map) {
               return;
           }
-
           $ionicLoading.show({
             content: 'Getting current location...',
             showBackdrop: false
           });
-
           navigator.geolocation.getCurrentPosition(function(pos) {
             $scope.map.setCenter(new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude));
             $ionicLoading.hide();
@@ -67,7 +59,6 @@ angular.module('App.controllers', ['ionic','ionic.rating'])
           });
       };
 })
-
 .controller('ChatsCtrl', function($scope, Chats,$location) {
   // With the new view caching in Ionic, Controllers are only called
   // when they are recreated or on app start, instead of every page change.
@@ -76,9 +67,6 @@ angular.module('App.controllers', ['ionic','ionic.rating'])
   //
   //$scope.$on('$ionicView.enter', function(e) {
   //});
-
-
-
   $scope.chats = Chats.all();
   $scope.remove = function(chat) {
     Chats.remove(chat);
@@ -123,8 +111,8 @@ angular.module('App.controllers', ['ionic','ionic.rating'])
       console.log(key);
       console.log(value);
       $scope.displayEventInfo = value;
-      console.log(displayEventInfo);
-      console.log(displayEventInfo.event_name);
+      console.log($scope.displayEventInfo);
+      console.log($scope.displayEventInfo.event_name);
       //var displayEventLocations = '<div id="content">' +displayEventInfo.event_name+ '</div';
       //var displayEvent{
       //  event_name: value.event_name,
@@ -148,7 +136,7 @@ angular.module('App.controllers', ['ionic','ionic.rating'])
 
 
    $scope.takeImage = function() {
-       var options = {
+       var options2 = {
            quality: 80,
            destinationType: 0,//Camera.DestinationType.DATA_URL,
            sourceType: 1,//Camera.PictureSourceType.CAMERA,
@@ -160,7 +148,7 @@ angular.module('App.controllers', ['ionic','ionic.rating'])
            saveToPhotoAlbum: false
        };
 
-       $cordovaCamera.getPicture(options).then(function(imageData) {
+       $cordovaCamera.getPicture(options2).then(function(imageData) {
            $scope.srcImage = "data:image/jpeg;base64," + imageData;
        }, function(err) {
            // error
