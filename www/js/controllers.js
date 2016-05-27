@@ -1,4 +1,4 @@
-angular.module('App.controllers', [])
+angular.module('App.controllers', ['ionic.rating'])
 
 .controller('DashCtrl', function($scope) {})
 
@@ -94,6 +94,11 @@ angular.module('App.controllers', [])
 
 
 .controller('ChatDetailCtrl', function($scope, $stateParams, $location,$cordovaCamera, Chats, $state, $localStorage,$http,$ionicPopup, $firebaseArray, $firebaseObject, FURL) {
+  // set the rate and max variables
+   $scope.rating = {};
+   $scope.rating.rate = 3;
+   $scope.rating.max = 5;
+
   var ref = new Firebase(FURL);
   var events = ref.child("Events");
   var events_array = $firebaseArray(events);
